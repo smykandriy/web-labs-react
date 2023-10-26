@@ -1,0 +1,17 @@
+.itemsContainer {
+  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 12% 0%;
+}
+
+.buttonContainer {
+  height: 20vh;
+  text-align: center;
+
+  .homeButton {
+    font-size: 1.3em;
+    height: 8vh;
+    width: 14vw;
+  }
+}
