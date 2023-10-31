@@ -8,17 +8,17 @@ export const Header: React.FC = () => {
         <nav>
           <ul>
             <li>
-              <a href="">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="">Catalog</a>
+              <a href="/catalog/">Catalog</a>
             </li>
             <li>
               <a href="">Cart</a>
             </li>
           </ul>
         </nav>
-				<div></div>
+        <div className={styles.hidden}></div>
       </div>
     </header>
   );

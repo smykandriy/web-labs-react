@@ -11,13 +11,13 @@ export const Footer: React.FC = () => {
         <h2 className={styles.title}>Helicopters</h2>
         <nav className={styles.linksNav}>
           <a href="">
-            <img src="src\assets\images\facebook.png" alt="Facebook" />
+            <img src="\src\assets\images\facebook.png" alt="Facebook" />
           </a>
           <a href="">
-            <img src="src\assets\images\insta.png" alt="Instagram" />
+            <img src="\src\assets\images\insta.png" alt="Instagram" />
           </a>
           <a href="">
-            <img src="src\assets\images\telegram.png" alt="Telegram" />
+            <img src="\src\assets\images\telegram.png" alt="Telegram" />
           </a>
         </nav>
       </div>
