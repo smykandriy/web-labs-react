@@ -1,4 +1,4 @@
-import styles from "./HeroItemCard.module.scss"
+import styles from "./HeroItemCard.module.scss";
 
 export interface HeroItemCardElement {
   imageSrc?: string;
@@ -6,7 +6,9 @@ export interface HeroItemCardElement {
   description?: string;
 }
 
-export const HeroItemCard: React.FC<HeroItemCardElement> = (props: HeroItemCardElement) => {
+export const HeroItemCard: React.FC<HeroItemCardElement> = (
+  props: HeroItemCardElement
+) => {
   const defaultImageSrc =
     props.imageSrc || "src/assets/images/item-helicopter.jpg";
   const defaultTitle = props.title || "HelicopterItem";
