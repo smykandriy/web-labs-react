@@ -6,4 +6,4 @@ from server.apps.aircraft.models import Helicopter
 class HelicopterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Helicopter
-        fields = ("id", "model", "weight", "fuel_capacity", "max_altitude", "take_off_weight")
+        fields = ("id", "model", "weight", "fuel_capacity", "max_altitude", "take_off_weight", "price")

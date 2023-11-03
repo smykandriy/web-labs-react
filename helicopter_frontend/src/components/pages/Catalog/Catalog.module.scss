@@ -1,0 +1,60 @@
+.catalogHero {
+  text-align: center;
+  width: 100%;
+  min-height: 30vh;
+
+  .filtersAndSearch {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10vh;
+    background-color: rgb(217, 217, 217);
+
+    .filtersContainer {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .applyFiltersButton {
+        height: 4vh;
+        width: 7vw;
+        font-size: 1em;
+      }
+
+      .filterValueContainer {
+        background-color: black;
+        border-radius: 20px;
+      }
+
+      .filterValueContainer input,
+      select {
+        border-radius: 20px;
+        height: 4vh;
+        font-size: 1em;
+        color: black;
+        font-family: 700;
+      }
+
+      input {
+        font-family: 700;
+        text-align: center;
+        width: 7vw;
+      }
+    }
+
+    .search {
+      width: 7vw;
+      height: 4vh;
+      border-radius: 20px;
+      font-size: 1em;
+      font-family: 700;
+      text-align: center;
+    }
+  }
+
+  .viewMoreHelicoptersButton {
+    margin-block: 3vh;
+  }
+}
