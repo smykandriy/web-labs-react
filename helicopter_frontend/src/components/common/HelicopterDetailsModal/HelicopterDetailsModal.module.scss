@@ -1,0 +1,71 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0;
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 2;
+
+    .modalContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 30vw;
+      width: 37vw;
+
+      h2 {
+        margin-block: 5%;
+        font-size: 1.6em;
+      }
+
+      .modalHero {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 30vh;
+        margin-bottom: 5vh;
+
+        .helicopterImage {
+          border-radius: 20px;
+        }
+        p {
+          font-size: 1.4em;
+          margin-block: 1.5vh;
+        }
+      }
+
+      .priceContainer {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p {
+          margin-left: 3vw;
+          font-size: 1.4em;
+        }
+
+        .buttonsContainer {
+          flex-direction: row;
+          margin-right: 3vw;
+
+          .closeButton {
+            margin-left: 2vw;
+          }
+        }
+      }
+    }
+  }
+}
