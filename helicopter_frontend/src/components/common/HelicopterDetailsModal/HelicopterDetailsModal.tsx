@@ -13,7 +13,6 @@ export const HelicopterDetailsModal: React.FC<{
 
   const handleAddToCart = () => {
     if (helicopter) {
-      console.log("Adding to cart:", helicopter);
       dispatch(addToCart(helicopter));
       onClose();
     }

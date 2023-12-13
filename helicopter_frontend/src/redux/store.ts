@@ -1,5 +1,4 @@
 import {configureStore} from "@reduxjs/toolkit";
-// import cartReducer from "../components/common/HelicopterDetailsModal/HelicopterDetails.slice"
 import rootReducer from "./rootReducer";
 
 
