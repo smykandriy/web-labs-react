@@ -2,11 +2,23 @@ import React from "react";
 import { Helicopter } from "../HelicopterItem";
 import { CustomButton } from "../../util/CustomButton";
 import styles from "./HelicopterDetailsModal.module.scss";
+import { useAppDispatch } from "../../../redux";
+import { addToCart } from "./HelicopterDetails.slice";
 
 export const HelicopterDetailsModal: React.FC<{
   helicopter: Helicopter | null;
   onClose: () => void;
 }> = ({ helicopter, onClose }) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    if (helicopter) {
+      console.log("Adding to cart:", helicopter);
+      dispatch(addToCart(helicopter));
+      onClose();
+    }
+  };
+
   return (
     helicopter && (
       <div className={styles.modalBackdrop}>
@@ -31,7 +43,7 @@ export const HelicopterDetailsModal: React.FC<{
                 Price: <b>{helicopter.price}</b>
               </p>
               <div className={styles.buttonsContainer}>
-                <CustomButton text="Add to cart" onClick={onClose} />
+              <CustomButton text="Add to cart" onClick={handleAddToCart} />
                 <CustomButton
                   className={styles.closeButton}
                   text="Close"

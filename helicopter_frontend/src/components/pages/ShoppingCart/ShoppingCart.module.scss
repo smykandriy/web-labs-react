@@ -1,0 +1,17 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  margin-block: 2vh;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  margin-inline: 10vw;
+  margin-block: 3vh;
+}

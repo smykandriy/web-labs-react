@@ -5,6 +5,8 @@ import { ViewMoreButton } from "../../util/ViewMoreButton";
 import styles from "./Catalog.module.scss";
 import { CustomButton } from "../../util/CustomButton";
 import { Loader } from "../../util/Loader";
+import { useAppSelector } from "../../../redux";
+import { selectCartItems } from "../../common/HelicopterDetailsModal/HelicopterDetails.slice";
 
 export const Catalog: React.FC = () => {
   const [helicopters, setHelicopters] = useState([]);
@@ -13,6 +15,7 @@ export const Catalog: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
   const [loading, setLoading] = useState(true);
+  const cartItems = useAppSelector(selectCartItems);
 
   const handleFilterChange = useCallback(
     (filterType: string, filterVal: string) => {
@@ -36,6 +39,7 @@ export const Catalog: React.FC = () => {
 
   useEffect(() => {
     const query = getQuery();
+    console.log("Cart: ", cartItems);
 
     async function fetchHelicopters(query: string) {
       try {
