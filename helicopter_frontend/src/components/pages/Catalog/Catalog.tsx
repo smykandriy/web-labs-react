@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { getHelicopters } from "../../services/helicopters";
+import { getHelicopters } from "../../services/getHelicopters";
 import HelicopterList from "../../common/HelicopterList/HelicopterList";
 import { ViewMoreButton } from "../../util/ViewMoreButton";
 import styles from "./Catalog.module.scss";
 import { CustomButton } from "../../util/CustomButton";
+import { Loader } from "../../util/Loader";
 
 export const Catalog: React.FC = () => {
   const [helicopters, setHelicopters] = useState([]);
@@ -11,6 +12,7 @@ export const Catalog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const handleFilterChange = useCallback(
     (filterType: string, filterVal: string) => {
@@ -39,8 +41,10 @@ export const Catalog: React.FC = () => {
       try {
         const data = await getHelicopters(query);
         setHelicopters(data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     }
 
@@ -61,40 +65,46 @@ export const Catalog: React.FC = () => {
 
   return (
     <div className={styles.catalogHero}>
-      <div className={styles.filtersAndSearch}>
-        <div className={styles.filtersContainer}>
-          <CustomButton
-            className={styles.applyFiltersButton}
-            text="Apply filter"
-            onClick={() => handleFilterChange(selectedFilter, filterValue)}
-          />
-          <div className={styles.filterValueContainer}>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className={styles.filtersAndSearch}>
+            <div className={styles.filtersContainer}>
+              <CustomButton
+                className={styles.applyFiltersButton}
+                text="Apply filter"
+                onClick={() => handleFilterChange(selectedFilter, filterValue)}
+              />
+              <div className={styles.filterValueContainer}>
+                <input
+                  type="text"
+                  placeholder="Filter Value"
+                  onChange={(e) => setFilterValue(e.target.value)}
+                />
+                <select onChange={(e) => setSelectedFilter(e.target.value)}>
+                  <option value="weight">Weight</option>
+                  <option value="max_altitude">Max Altitude</option>
+                  <option value="price">Price</option>
+                </select>
+              </div>
+            </div>
             <input
+              className={styles.search}
+              placeholder="Search"
               type="text"
-              placeholder="Filter Value"
-              onChange={(e) => setFilterValue(e.target.value)}
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
             />
-            <select onChange={(e) => setSelectedFilter(e.target.value)}>
-              <option value="weight">Weight</option>
-              <option value="max_altitude">Max Altitude</option>
-              <option value="price">Price</option>
-            </select>
           </div>
-        </div>
-        <input
-          className={styles.search}
-          placeholder="Search"
-          type="text"
-          value={searchQuery}
-          onChange={(e) => handleSearch(e.target.value)}
-        />
-      </div>
-      <HelicopterList helicopters={visibleHelicopters} />
-      {visibleRows < totalRows && (
-        <ViewMoreButton
-          className={styles.viewMoreHelicoptersButton}
-          onClick={handleViewMoreClick}
-        />
+          <HelicopterList helicopters={visibleHelicopters} />
+          {visibleRows < totalRows && (
+            <ViewMoreButton
+              className={styles.viewMoreHelicoptersButton}
+              onClick={handleViewMoreClick}
+            />
+          )}
+        </>
       )}
     </div>
   );

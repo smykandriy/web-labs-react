@@ -1,0 +1,33 @@
+.cartItem {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-inline: 10vw;
+  border: 2px solid black;
+  font-size: 1.5em;
+
+  .cartImage {
+    border-radius: 0;
+    width: 8vw;
+  }
+
+  .counterContainer {
+    width: 14vw;
+    flex-direction: row;
+    height: 2vw;
+    justify-content: space-evenly;
+    background: none;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
+
+    .countButton {
+      width: 4vw;
+      height: 2vw;
+      margin-inline: 1vw;
+    }
+  }
+}
