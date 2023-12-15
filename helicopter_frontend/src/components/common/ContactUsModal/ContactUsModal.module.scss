@@ -1,0 +1,26 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+
+  .closeButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2vh;
+    width: 6vw;
+    font-size: 1.2em;
+  }
+
+  .modal {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+}
